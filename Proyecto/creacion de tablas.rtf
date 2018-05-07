@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 create table Rutero(\
+    NRPRutero varchar2(5),\
+    DNI varchar2(9) NOT NULL,\
+    Nombre varchar2(20) NOT NULL,\
+    Apellido varchar2(20) NOT NULL,\
+    constraint nrp_rutero_pk primary key(NRPRutero)\
+);\
+\
+ALTER TABLE Rutero ADD CONSTRAINT nrp_rutero_pk\
+      PRIMARY KEY (NRPRutero);\
+      \
+desc Rutero\
+\
+ALTER TABLE Rutero ADD CONSTRAINT nrp_rutero_pk\
+      PRIMARY KEY (NRPRutero);\
+\
+create table Ruta(\
+    Codruta varchar(5),\
+    NRPRutero varchar2(5) NOT NULL\
+);\
+\
+ALTER TABLE Ruta ADD CONSTRAINT nrp_rutero_fk\
+      FOREIGN KEY (NRPRutero) REFERENCES Rutero (NRPRutero);\
+      \
+desc Ruta      \
+      \
+create table Paquete(\
+    Codpaquete varchar2(5),\
+    Peso number(2),\
+    DirEnvio varchar2(30),\
+    DirEmisor varchar2(30),\
+    Bultos number(2),\
+    CodAlbaran varchar(8),\
+    NRPRutero varchar2(5) NOT NULL\
+);\
+\
+}
